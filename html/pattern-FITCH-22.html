@@ -1,0 +1,594 @@
+<html>
+<head>
+  <title>LingPy Tree Class</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="<++>" />
+</head>
+<body>
+  <style>.node-container {
+  display: flex;
+  flex-direction: row;
+  border: 0px solid gray;
+  padding: 0px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  align-content: stretch; 
+  align-items: center;
+  background: rgba(0,0,0,0.10);
+  border-radius: 50px;
+}
+.node-label {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid CornflowerBlue;
+  padding: 10px;
+  margin-left: 5px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  justify-content: center;
+  flex-basis:100px;
+  background: LightBlue;
+  border-radius: 25px;
+}
+.node-content {
+  display: flex;
+  flex-direction: column;
+  border-left: 0px dotted Crimson;
+  padding: 0px;
+  margin-bottom: 0px;
+  flex-grow: 2;
+  flex-shrink: 2;
+}
+
+.node-leave {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border-top: 1px dotted black;
+}
+.inner_leave {
+	float: right;
+	width: 250px;
+	display: table-cell;
+     border: 2px solid Green;
+     position: relative;
+     background: lightgreen;
+     right: 0px;
+  margin: 10px;
+  padding: 0px;
+
+
+}
+
+
+#popup {
+	position: fixed;
+	top: 30;
+	right: 30;
+	background: white;
+	border: 2px solid Crimson;
+	padding: 5px;
+	display: none;
+	cursor: pointer;
+}
+#popup table {
+	border: 2px solid black;
+}
+#popup table th {
+	border: 1px solid gray;
+}
+#popup table td {
+	border: 1px solid lightgray;
+}
+</style>
+  <script>
+var TREE = {
+  "Bar": {
+    "children": [],
+    "leave": true,
+    "parent": "(Tat,Bar,(Tan,Kub))",
+    "branch_length": "0.045454547",
+    "label": "Bar",
+    "root": false
+  },
+  "Kor": {
+    "children": [],
+    "leave": true,
+    "parent": "(Kor,(Sek,Sio))",
+    "branch_length": "0.045454547",
+    "label": "Kor",
+    "root": false
+  },
+  "nodes": [
+    "((((Des,(Sir,Yup)),((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))))),(Kue,(Mai,(Kor,(Sek,Sio))))),(Mak,Bas))",
+    "(((Des,(Sir,Yup)),((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))))),(Kue,(Mai,(Kor,(Sek,Sio)))))",
+    "(Mak,Bas)",
+    "((Des,(Sir,Yup)),((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub))))))))",
+    "(Kue,(Mai,(Kor,(Sek,Sio))))",
+    "Mak",
+    "Bas",
+    "(Des,(Sir,Yup))",
+    "((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))))",
+    "Kue",
+    "(Mai,(Kor,(Sek,Sio)))",
+    "Des",
+    "(Sir,Yup)",
+    "(Pir,(Tuk,Wan))",
+    "(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub))))))",
+    "Mai",
+    "(Kor,(Sek,Sio))",
+    "Sir",
+    "Yup",
+    "Pir",
+    "(Tuk,Wan)",
+    "Yur",
+    "(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))",
+    "Kor",
+    "(Sek,Sio)",
+    "Tuk",
+    "Wan",
+    "Tuy",
+    "(Pis,(Kar,(Tat,Bar,(Tan,Kub))))",
+    "Sek",
+    "Sio",
+    "Pis",
+    "(Kar,(Tat,Bar,(Tan,Kub)))",
+    "Kar",
+    "(Tat,Bar,(Tan,Kub))",
+    "Tat",
+    "Bar",
+    "(Tan,Kub)",
+    "Tan",
+    "Kub"
+  ],
+  "Pis": {
+    "children": [],
+    "leave": true,
+    "parent": "(Pis,(Kar,(Tat,Bar,(Tan,Kub))))",
+    "branch_length": "0.045454547",
+    "label": "Pis",
+    "root": false
+  },
+  "(Kar,(Tat,Bar,(Tan,Kub)))": {
+    "children": [
+      "Kar",
+      "(Tat,Bar,(Tan,Kub))"
+    ],
+    "leave": false,
+    "parent": "(Pis,(Kar,(Tat,Bar,(Tan,Kub))))",
+    "branch_length": "0.045454547",
+    "label": "edge_16",
+    "root": false
+  },
+  "Yup": {
+    "children": [],
+    "leave": true,
+    "parent": "(Sir,Yup)",
+    "branch_length": "0.045454547",
+    "label": "Yup",
+    "root": false
+  },
+  "Tat": {
+    "children": [],
+    "leave": true,
+    "parent": "(Tat,Bar,(Tan,Kub))",
+    "branch_length": "0.045454547",
+    "label": "Tat",
+    "root": false
+  },
+  "root": "((((Des,(Sir,Yup)),((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))))),(Kue,(Mai,(Kor,(Sek,Sio))))),(Mak,Bas))",
+  "Tuy": {
+    "children": [],
+    "leave": true,
+    "parent": "(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))",
+    "branch_length": "0.045454547",
+    "label": "Tuy",
+    "root": false
+  },
+  "(Kue,(Mai,(Kor,(Sek,Sio))))": {
+    "children": [
+      "Kue",
+      "(Mai,(Kor,(Sek,Sio)))"
+    ],
+    "leave": false,
+    "parent": "(((Des,(Sir,Yup)),((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))))),(Kue,(Mai,(Kor,(Sek,Sio)))))",
+    "branch_length": "0.033859",
+    "label": "edge_4",
+    "root": false
+  },
+  "(Pir,(Tuk,Wan))": {
+    "children": [
+      "Pir",
+      "(Tuk,Wan)"
+    ],
+    "leave": false,
+    "parent": "((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))))",
+    "branch_length": "0.045454547",
+    "label": "edge_9",
+    "root": false
+  },
+  "Tuk": {
+    "children": [],
+    "leave": true,
+    "parent": "(Tuk,Wan)",
+    "branch_length": "0.045454547",
+    "label": "Tuk",
+    "root": false
+  },
+  "Pir": {
+    "children": [],
+    "leave": true,
+    "parent": "(Pir,(Tuk,Wan))",
+    "branch_length": "0.045454547",
+    "label": "Pir",
+    "root": false
+  },
+  "(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))": {
+    "children": [
+      "Tuy",
+      "(Pis,(Kar,(Tat,Bar,(Tan,Kub))))"
+    ],
+    "leave": false,
+    "parent": "(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub))))))",
+    "branch_length": "0.02690167",
+    "label": "edge_13",
+    "root": false
+  },
+  "(Des,(Sir,Yup))": {
+    "children": [
+      "Des",
+      "(Sir,Yup)"
+    ],
+    "leave": false,
+    "parent": "((Des,(Sir,Yup)),((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub))))))))",
+    "branch_length": "0.045454547",
+    "label": "edge_5",
+    "root": false
+  },
+  "Sek": {
+    "children": [],
+    "leave": true,
+    "parent": "(Sek,Sio)",
+    "branch_length": "0.045454547",
+    "label": "Sek",
+    "root": false
+  },
+  "(((Des,(Sir,Yup)),((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))))),(Kue,(Mai,(Kor,(Sek,Sio)))))": {
+    "children": [
+      "((Des,(Sir,Yup)),((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub))))))))",
+      "(Kue,(Mai,(Kor,(Sek,Sio))))"
+    ],
+    "leave": false,
+    "parent": "((((Des,(Sir,Yup)),((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))))),(Kue,(Mai,(Kor,(Sek,Sio))))),(Mak,Bas))",
+    "branch_length": "0.022727273",
+    "label": "edge_1",
+    "root": false
+  },
+  "Sir": {
+    "children": [],
+    "leave": true,
+    "parent": "(Sir,Yup)",
+    "branch_length": "0.045454547",
+    "label": "Sir",
+    "root": false
+  },
+  "(Pis,(Kar,(Tat,Bar,(Tan,Kub))))": {
+    "children": [
+      "Pis",
+      "(Kar,(Tat,Bar,(Tan,Kub)))"
+    ],
+    "leave": false,
+    "parent": "(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))",
+    "branch_length": "0.045454547",
+    "label": "edge_15",
+    "root": false
+  },
+  "(Sek,Sio)": {
+    "children": [
+      "Sek",
+      "Sio"
+    ],
+    "leave": false,
+    "parent": "(Kor,(Sek,Sio))",
+    "branch_length": "0.045454547",
+    "label": "edge_14",
+    "root": false
+  },
+  "(Tan,Kub)": {
+    "children": [
+      "Tan",
+      "Kub"
+    ],
+    "leave": false,
+    "parent": "(Tat,Bar,(Tan,Kub))",
+    "branch_length": "0.045454547",
+    "label": "edge_18",
+    "root": false
+  },
+  "Wan": {
+    "children": [],
+    "leave": true,
+    "parent": "(Tuk,Wan)",
+    "branch_length": "0.045454547",
+    "label": "Wan",
+    "root": false
+  },
+  "((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))))": {
+    "children": [
+      "(Pir,(Tuk,Wan))",
+      "(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub))))))"
+    ],
+    "leave": false,
+    "parent": "((Des,(Sir,Yup)),((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub))))))))",
+    "branch_length": "0.045454547",
+    "label": "edge_6",
+    "root": false
+  },
+  "(Tat,Bar,(Tan,Kub))": {
+    "children": [
+      "Tat",
+      "Bar",
+      "(Tan,Kub)"
+    ],
+    "leave": false,
+    "parent": "(Kar,(Tat,Bar,(Tan,Kub)))",
+    "branch_length": "0.045454547",
+    "label": "edge_17",
+    "root": false
+  },
+  "Tan": {
+    "children": [],
+    "leave": true,
+    "parent": "(Tan,Kub)",
+    "branch_length": "0.045454547",
+    "label": "Tan",
+    "root": false
+  },
+  "(Tuk,Wan)": {
+    "children": [
+      "Tuk",
+      "Wan"
+    ],
+    "leave": false,
+    "parent": "(Pir,(Tuk,Wan))",
+    "branch_length": "0.045454547",
+    "label": "edge_12",
+    "root": false
+  },
+  "leaves": [
+    "Mak",
+    "Bas",
+    "Kue",
+    "Des",
+    "Mai",
+    "Sir",
+    "Yup",
+    "Pir",
+    "Yur",
+    "Kor",
+    "Tuk",
+    "Wan",
+    "Tuy",
+    "Sek",
+    "Sio",
+    "Pis",
+    "Kar",
+    "Tat",
+    "Bar",
+    "Tan",
+    "Kub"
+  ],
+  "((Des,(Sir,Yup)),((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub))))))))": {
+    "children": [
+      "(Des,(Sir,Yup))",
+      "((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))))"
+    ],
+    "leave": false,
+    "parent": "(((Des,(Sir,Yup)),((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))))),(Kue,(Mai,(Kor,(Sek,Sio)))))",
+    "branch_length": "0.0445269",
+    "label": "edge_3",
+    "root": false
+  },
+  "(Mak,Bas)": {
+    "children": [
+      "Mak",
+      "Bas"
+    ],
+    "leave": false,
+    "parent": "((((Des,(Sir,Yup)),((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))))),(Kue,(Mai,(Kor,(Sek,Sio))))),(Mak,Bas))",
+    "branch_length": "0.022727273",
+    "label": "edge_2",
+    "root": false
+  },
+  "Des": {
+    "children": [],
+    "leave": true,
+    "parent": "(Des,(Sir,Yup))",
+    "branch_length": "0.045454547",
+    "label": "Des",
+    "root": false
+  },
+  "(Mai,(Kor,(Sek,Sio)))": {
+    "children": [
+      "Mai",
+      "(Kor,(Sek,Sio))"
+    ],
+    "leave": false,
+    "parent": "(Kue,(Mai,(Kor,(Sek,Sio))))",
+    "branch_length": "0.042207792",
+    "label": "edge_7",
+    "root": false
+  },
+  "Mai": {
+    "children": [],
+    "leave": true,
+    "parent": "(Mai,(Kor,(Sek,Sio)))",
+    "branch_length": "0.044990722",
+    "label": "Mai",
+    "root": false
+  },
+  "Kue": {
+    "children": [],
+    "leave": true,
+    "parent": "(Kue,(Mai,(Kor,(Sek,Sio))))",
+    "branch_length": "0.04406308",
+    "label": "Kue",
+    "root": false
+  },
+  "Bas": {
+    "children": [],
+    "leave": true,
+    "parent": "(Mak,Bas)",
+    "branch_length": "0.039424863",
+    "label": "Bas",
+    "root": false
+  },
+  "Kar": {
+    "children": [],
+    "leave": true,
+    "parent": "(Kar,(Tat,Bar,(Tan,Kub)))",
+    "branch_length": "0.045454547",
+    "label": "Kar",
+    "root": false
+  },
+  "Yur": {
+    "children": [],
+    "leave": true,
+    "parent": "(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub))))))",
+    "branch_length": "0.045454547",
+    "label": "Yur",
+    "root": false
+  },
+  "Mak": {
+    "children": [],
+    "leave": true,
+    "parent": "(Mak,Bas)",
+    "branch_length": "0.043135434",
+    "label": "Mak",
+    "root": false
+  },
+  "((((Des,(Sir,Yup)),((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))))),(Kue,(Mai,(Kor,(Sek,Sio))))),(Mak,Bas))": {
+    "label": "root",
+    "leave": false,
+    "root": true,
+    "children": [
+      "(((Des,(Sir,Yup)),((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))))),(Kue,(Mai,(Kor,(Sek,Sio)))))",
+      "(Mak,Bas)"
+    ],
+    "branch_length": "0"
+  },
+  "Sio": {
+    "children": [],
+    "leave": true,
+    "parent": "(Sek,Sio)",
+    "branch_length": "0.045454547",
+    "label": "Sio",
+    "root": false
+  },
+  "(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub))))))": {
+    "children": [
+      "Yur",
+      "(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))"
+    ],
+    "leave": false,
+    "parent": "((Pir,(Tuk,Wan)),(Yur,(Tuy,(Pis,(Kar,(Tat,Bar,(Tan,Kub)))))))",
+    "branch_length": "0.045454547",
+    "label": "edge_10",
+    "root": false
+  },
+  "Kub": {
+    "children": [],
+    "leave": true,
+    "parent": "(Tan,Kub)",
+    "branch_length": "0.045454547",
+    "label": "Kub",
+    "root": false
+  },
+  "(Sir,Yup)": {
+    "children": [
+      "Sir",
+      "Yup"
+    ],
+    "leave": false,
+    "parent": "(Des,(Sir,Yup))",
+    "branch_length": "0.025046382",
+    "label": "edge_8",
+    "root": false
+  },
+  "(Kor,(Sek,Sio))": {
+    "children": [
+      "Kor",
+      "(Sek,Sio)"
+    ],
+    "leave": false,
+    "parent": "(Mai,(Kor,(Sek,Sio)))",
+    "branch_length": "0.045454547",
+    "label": "edge_11",
+    "root": false
+  }
+};
+
+function check_change() {
+  
+  /* start from root */
+  var queue = [TREE['root']];
+  while (queue) {
+    var current = queue.pop();
+    
+    // get the children
+    var children = TREE[current]['children'];
+
+    // check for current char
+    var this_node = document.getElementById(TREE[current]['label']+':label');
+    var this_content = this_node.dataset.value;
+
+    // iterate over children
+    for (var i=0,child; child=children[i]; i++) {
+      // get child value
+      var child_node = document.getElementById(TREE[child]['label']+':label');
+      var child_content = child_node.dataset.value;
+      
+      // change border if child not equals mother
+      // change border if child not equals mother
+      if (child_content != this_content) {
+	if (TREE[child]['leave']) {
+	  child_node.childNodes[0].style.border = '10px double black';
+	}
+	else {
+	  child_node.style.border = '10px double black';
+	}
+      }
+
+      queue.push(child);
+    }
+  }
+}
+
+
+
+</script>
+  <div><div class="node-container"><div id="root:label" data-value="t" class="node-label"><b>[t]</b> <sup>root</sup></div><div class="node-content"><div class="node-container"><div id="edge_1:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_1</sup></div><div class="node-content"><div class="node-container"><div id="edge_3:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_3</sup></div><div class="node-content"><div class="node-container"><div id="edge_5:label" data-value="d" class="node-label"><b>[d]</b> <sup>edge_5</sup></div><div class="node-content"><div id="Des:label" data-value="d" class="node-leave"><div class="inner_leave"><b>[d]</b> <sup>Des</sup></div></div>
+<div class="node-container"><div id="edge_8:label" data-value="d" class="node-label"><b>[d]</b> <sup>edge_8</sup></div><div class="node-content"><div id="Sir:label" data-value="d" class="node-leave"><div class="inner_leave"><b>[d]</b> <sup>Sir</sup></div></div>
+<div id="Yup:label" data-value="d" class="node-leave"><div class="inner_leave"><b>[d]</b> <sup>Yup</sup></div></div></div></div></div></div>
+<div class="node-container"><div id="edge_6:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_6</sup></div><div class="node-content"><div class="node-container"><div id="edge_9:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_9</sup></div><div class="node-content"><div id="Pir:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Pir</sup></div></div>
+<div class="node-container"><div id="edge_12:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_12</sup></div><div class="node-content"><div id="Tuk:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Tuk</sup></div></div>
+<div id="Wan:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Wan</sup></div></div></div></div></div></div>
+<div class="node-container"><div id="edge_10:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_10</sup></div><div class="node-content"><div id="Yur:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Yur</sup></div></div>
+<div class="node-container"><div id="edge_13:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_13</sup></div><div class="node-content"><div id="Tuy:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Tuy</sup></div></div>
+<div class="node-container"><div id="edge_15:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_15</sup></div><div class="node-content"><div id="Pis:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Pis</sup></div></div>
+<div class="node-container"><div id="edge_16:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_16</sup></div><div class="node-content"><div id="Kar:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Kar</sup></div></div>
+<div class="node-container"><div id="edge_17:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_17</sup></div><div class="node-content"><div id="Tat:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Tat</sup></div></div>
+<div id="Bar:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Bar</sup></div></div>
+<div class="node-container"><div id="edge_18:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_18</sup></div><div class="node-content"><div id="Tan:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Tan</sup></div></div>
+<div id="Kub:label" data-value="d" class="node-leave"><div class="inner_leave"><b>[d]</b> <sup>Kub</sup></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+<div class="node-container"><div id="edge_4:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_4</sup></div><div class="node-content"><div id="Kue:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Kue</sup></div></div>
+<div class="node-container"><div id="edge_7:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_7</sup></div><div class="node-content"><div id="Mai:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Mai</sup></div></div>
+<div class="node-container"><div id="edge_11:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_11</sup></div><div class="node-content"><div id="Kor:label" data-value="th" class="node-leave"><div class="inner_leave"><b>[th]</b> <sup>Kor</sup></div></div>
+<div class="node-container"><div id="edge_14:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_14</sup></div><div class="node-content"><div id="Sek:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Sek</sup></div></div>
+<div id="Sio:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Sio</sup></div></div></div></div></div></div></div></div></div></div></div></div>
+<div class="node-container"><div id="edge_2:label" data-value="t" class="node-label"><b>[t]</b> <sup>edge_2</sup></div><div class="node-content"><div id="Mak:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Mak</sup></div></div>
+<div id="Bas:label" data-value="t" class="node-leave"><div class="inner_leave"><b>[t]</b> <sup>Bas</sup></div></div></div></div></div></div></div>
+  <div id="popup" onclick="this.style.display = 'none'"></div>
+  <script>check_change();</script>
+</body>
+</html>

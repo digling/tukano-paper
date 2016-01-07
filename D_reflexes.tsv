@@ -1,0 +1,34 @@
+Number	Proto-sound	Context	Sio	Sek	Kor	Mai	Kue	Tan	Kub	Des	Sir	Yup	Bas	Mak	Tuk	Bar	Tat	Kar	Pis	Tuy	Yur	Pir	Wan
+1	*h		Ø	Ø	Ø	Ø	h	Ø	Ø	h	h	h	h	h	h	Ø	Ø	Ø	Ø	Ø	Ø	h	h
+3	*j	V_V	j	j	j	j	j	j	j	j	j	j	j/t∫	j/t∫	s	h	h	s	t∫	s	s	s	s
+4	*k	#_	k	k	kh	k	k	k	k	k	k	k	k	k	k	k	k	k	k	k	k	k	kh
+5	*k	V_V	k	k	kh	k	k	k	k	g	g	g	k	k	k	k	k	k	k	k	k	k	k
+6	*k	i,e_	k	k	kh	k	k	k	k	k	k	k	k	k	k	k	k	k	k	k	k	k	t∫
+7	*k	~V_V	k	k	kh	k	k	k	Ø	g	g	g	k	k	k	k	k	k	k	k	k	k	k
+8	*kk		k	k	kh	k	k	k	k	k	k	k	k	k	k	k	k	k	k	k	k	k	k
+9	*kʔ	#_	kʔ	kʔ 	k	g/Ø	k/g	Ø	k	g	g	g	g	g	Ø	Ø	Ø	Ø	k	k	k	k	kh
+10	*kʔ	V_V	k	k	kh	k	k/g	k	Ø	g	g	g	g	g	vʔk	k	k	k	k	k	k	vʔk	vʔk
+11	*m		m	m	m	m	m	b	b	b	b	b	b	b	b	b	b	b	b	b	b	b	b
+12	*n		n	d	n	n	n	d	d	d	d	d	d	d	d	d	d	d	d	d	d	d	d
+13	*p	#_	h	h	h	h	h	p/ɸ	p	p	p	p	h	h	p	p	p	p	p	p	p	p	ph
+14	*p	V_V	h	h	h	h	h	p/ɸ	p	p	p	p	h	h	p	p	p	p	p	p	p	p	p
+15	*pʔ	#_	pʔ	pʔ 	p	ʔb	p/b	b	b	b	b	b	b	b	b	b	b	b	b	b	b	b	b
+16	*pʔ	#_V*p	h	h	h	h	h	p	p	b	b	b	b	b	b	b	b	b	b	b	b	b	b
+17	*pʔ	V_V	h	h	h	h	h	vʔp	b	b	b	b	b	b	vʔp	p	p	p	p	p	p	vʔp	vʔp
+18	*pʔ	~V_V	h	h	h	h	h	vʔb	b	b	b	b	b	b	vʔb	b	b	b	b	b	b	vʔb	vʔb
+19	*s	#_	s	s	s	s	s	h	h	s	s	s	t∫	t∫	s	h	h	h	h	s	s	s	s
+20	*s	V_V	s	s	s	s/t∫	s	h	h	s	s	s	t∫	t∫	s	h	h	s	t∫	s	s	s	s
+21	*t	#_	t	t	th	t	t	t	t	t	t	t	t	t	t	t	t	t	t	t	t	t	th
+22	*t	V_V	t	t	th	t	t	t	d	d	d	d	t	t	t	t	t	t	t	t	t	t	t
+23	*t	~V_V	t	t	th	t	n	d	d	d	d	d	t	t	t	t	t	t	t	t	t	t	t
+24	*ts 	#_	s	s	s	s/t∫	t/s	h	h	j	j	ts/s	j	j	j	j	j	j	j	j	j	j	j
+25	*ts 	V_V	s	s	s	s	t	h	h	s	s	ts	t∫	t∫	s	h	h	s	t∫	s	s	s	s
+26	*tsʔ	#_	sʔ	sʔ	j	d	j	j	h	j	j	j	j	j	j	j	j	j	j	j	j	j	j
+27	*tsʔ	#_i	sʔ	sʔ	j	j	r/l	r	h	d	d	d	r	r	d	d	r	r	d	d	d	d	d
+28	*tt	V_V	t	t	th	t	t	t	t/t∫	t	t	t	t	t	t	t	t	t	t	t	t	t	t
+29	*tʔ	#_	ɖ	d	r	ʔd	r/l	r	d	d	d	d	r	r	d	d	r	r	d	d	d	d	d
+30	*tʔ	V_V	t	t	th	t	t/l	t	d	d	d	d	d	d	vʔt	t	t	t	t	t	t	vʔt	vʔt
+31	*tʔ	~V_V	t	t	t	t	n	vʔr	d	d	d	d	d	d	vʔd	d	d	d	d	d	d	vʔd	vʔd
+32	*t∫	#_	t∫	s	s	s	t	h	h	s	s	t∫	t∫	t∫	s	h	h	h	h	s	s	s	s
+33	*w		w	w	w	b	w	w	w	w	w	w	w	w	w	w	w	w	w	w	w	w	w
+34	*ʔ		ʔ	ʔ	ʔ	Ø	Ø/h	ʔ	Ø	Ø/ʔ	Ø/ʔ	Ø	Ø	Ø	ʔ	Ø	Ø	Ø	Ø	Ø	Ø	Ø	ʔ
